@@ -1,3 +1,10 @@
+<?php
+// Загружаем конфигурацию
+$config = require 'config.php';
+require_once "connection.php";
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +15,14 @@
 	<title>CRUD</title>
 </head>
 <body class="inter-regular">
-Текст для проверки
+<?php
+
+$pdo = connectToDatabase($config['database']);
+
+if ($pdo) {
+    echo 'Successful connection';
+}
+
+?>
 </body>
 </html>
