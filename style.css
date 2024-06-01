@@ -5,6 +5,11 @@
     text-decoration: none;
 }
 
+body {
+    padding: 10px;
+    text-align: center;
+}
+
 .inter-regular {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
