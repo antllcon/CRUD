@@ -2,7 +2,6 @@
 // Загружаем конфигурацию
 $config = require 'Data/config.php';
 require_once "Data/connection.php";
-
 ?>
 
 <!doctype html>
@@ -15,14 +14,28 @@ require_once "Data/connection.php";
 	<title>CRUD</title>
 </head>
 <body class="inter-regular">
-<?php
+<h1 class="inter-bold">CRUD - example project</h1>
+<p>Created by antllcon</p>
 
-$pdo = connectToDatabase($config['database']);
+<table class="table">
+	<thead class="inter-bold">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Birthday</th>
+		<th>Number</th>
+	</tr>
+	</thead>
+	<tbody>
+    <?php
+    $pdo = connectToDatabase($config['database']);
+    $users = getData($pdo, 'users');
+    foreach ($users as $user) {
+		include "template.php";
+    }
+    ?>
+	</tbody>
+</table>
 
-if ($pdo) {
-    echo 'Successful connection';
-}
-
-?>
 </body>
 </html>
